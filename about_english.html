@@ -1,0 +1,329 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="robots" content="index,follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="marco tabone about me,marco tabone profilo, conoscenze tecniche marco tabone, marco tabone curriculum,"/>
+
+<title>about</title>
+<link rel="icon" type="png" href="images/favicon_02.png" />
+<link rel="stylesheet" type="text/css" href="css/main_style.css" />
+
+<link rel="stylesheet" media="all and (max-width: 320px)" href="css/smartphone_portrait.css" type="text/css"  />
+<!--Link al CSS se lo schermo è massimo 320px(cell portrait)-->
+
+<link rel="stylesheet" media="all and (min-width: 321px) and (max-width: 480px" href="css/smartphone_landscape.css" type="text/css" />
+<!--Link al CSS se lo schermo è compreso tra 321px e 480px (cell landscape)-->
+
+<link rel="stylesheet" media="all and (min-width: 481px) and (max-width: 768px"  href="css/tablet_portrait.css" type="text/css" />
+<!--Link al CSS se lo schermo è compreso tra 481px e 768px -->
+
+<link rel="stylesheet" media="all and (min-width: 768px) and (max-width: 1024px"  href="css/tablet_landscape.css" type="text/css" />
+<!--Link al CSS se lo schermo è compreso tra 768px e 1024px -->
+
+<link rel="stylesheet" media="all and (min-width: 1024px) "  href="css/screen.css" type="text/css" />
+<!--Link al CSS se lo schermo è maggiore di 1024px -->
+
+<script src="js/jquery-2.1.4.js"></script>
+<script type="text/javascript">
+
+		$(document).ready(function(){
+		
+			$(".slidingDiv").hide();
+			$(".show_hide").show();
+			
+			$('.show_hide').click(function(){
+			$(".slidingDiv").slideToggle();
+		});
+		
+		});
+</script>
+	
+<link rel="author" href="https://plus.google.com/107766061849006545830"/>
+<script type="text/javascript" src="js/greensock/TweenMax.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery-2.1.4.js"><\/script>')</script>
+<script src="js/jquery.lettering-0.6.1.min.js"></script>
+<script src="js/jquery.superscrollorama.js"></script>
+<script>
+		$(document).ready(function() {
+			// set rotation of flash
+			TweenMax.set("#newversion", {rotation: 15});
+
+			$('body').css('visibility','visible');
+
+			// hide content until after title animation
+			$('#content-wrapper').css('display','none');
+			
+			// lettering.js to split up letters for animation
+			$('#title-line1').lettering();
+			$('#title-line2').lettering();
+			$('#title-line3').lettering();
+			
+			// TimelineLite for title animation, then start up superscrollorama when complete
+			(new TimelineLite({onComplete:initScrollAnimations}))
+				.from( $('#title-line1 span'), .4, {delay: 1, css:{right:'1000px'}, ease:Back.easeOut})
+				.from( $('#title-line2'), .4, {css:{top:'1000px',opacity:'0'}, ease:Expo.easeOut})
+				.append([
+					TweenMax.from( $('#title-line3 .char1'), .25+Math.random(), {css:{top: '-200px', right:'1000px'}, ease:Elastic.easeOut}),
+					TweenMax.from( $('#title-line3 .char2'), .25+Math.random(), {css:{top: '300px', right:'1000px'}, ease:Elastic.easeOut}),
+					TweenMax.from( $('#title-line3 .char3'), .25+Math.random(), {css:{top: '-400px', right:'1000px'}, ease:Elastic.easeOut}),
+					TweenMax.from( $('#title-line3 .char4'), .25+Math.random(), {css:{top: '-200px', left:'1000px'}, ease:Elastic.easeOut}),
+					TweenMax.from( $('#title-line3 .char5'), .25+Math.random(), {css:{top: '400px', left:'1000px'}, ease:Elastic.easeOut})
+				])
+				.from("#newversion", .4, {scale: 5, autoAlpha: 0, ease: Elastic.easeOut})
+				.to( $('#title-info'), .5, {css:{opacity:.99, 'margin-top':0}, delay:-1, ease:Quad.easeOut});
+			
+			function initScrollAnimations() {
+				$('#content-wrapper').css('display','block');
+				var controller = $.superscrollorama();
+			
+				// title tweens --> dove regolare dimensioni caratteri effetto
+				$('.title-line span').each(function() {
+					controller.addTween(10, TweenMax.to(this, .5, {css:{top: Math.random()*-150-450, left: (Math.random()*1000)-500, rotation:Math.random()*720-360, 'font-size': Math.random()*210+105}, ease:Quad.easeOut}),140);
+				});
+				controller.addTween(10, TweenMax.to($('#title-line1'), .75, {css:{top: 600}, ease:Quad.easeOut}),200);
+				controller.addTween(10, TweenMax.to($('#title-line2'), .75, {css:{top: 200}, ease:Quad.easeOut}),200);
+				controller.addTween(10, TweenMax.to($('#title-line3'), .75, {css:{top: -100}, ease:Quad.easeOut},200));
+			}
+		});
+</script>
+
+<script type="text/javascript" src="js/cufon-yui.js"></script>
+<script type="text/javascript" src="js/Stencil_Std_700.font.js"></script>
+<script type="text/javascript">
+	Cufon.replace('h1'); // Works without a selector engine
+	Cufon.replace('#sub1'); // Requires a selector engine for IE 6-7, see above
+</script>
+</head>
+
+<body>
+	<div id="contenitore">
+            <div id="titolo">
+          
+                <h1>
+                  <em>D</em>
+                  <em class="planet left">O</em>
+                  <em>N</em>
+                  <em> </em>
+                  <em>T</em>
+                  <em>A</em>
+                  <em>B</em>
+                  <em class="planet right">O</em>
+                  <em>N</em>
+                </h1>
+   
+            </div><!--fine div titolo-->
+            
+            <div class="clear"></div>
+            
+                <div id="divexpander">
+                     <a href="#"class="show_hide"><img src="images/languages.png" alt="lang"/></a>
+                  
+                   <div class="slidingDiv">
+                        
+                     <ul>
+                       <li><a href="about.html" target="_self">Italian <img src="images/Italy-Flag-icon.png" class="flag"></a></li>
+                       <li><a href="#">English<img src="images/United-Kingdom-flag-icon.png" class="flag"></a></li>
+                     </ul> 
+                            
+                   </div><!--fine div slidingDiv-->
+                </div><!--fine div divexpander-->
+        <div class="logo">
+        	<h1><img src="images/favicon_02.png" alt="logo" class="adatta"></h1>
+              <ul class="nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#" class="selected">About me</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
+             </ul>
+        </div><!--fine div logo-->
+        
+        	<!--INIZIO PARTE DA MODIFICARE-->
+                      
+		<div id="parallax">
+        
+        	<h2 id="title">
+                <span id="title-line1" class="title-line">My</span>
+                <span id="title-line2" class="title-line">fantastic</span>
+                <span id="title-line3" class="title-line">curriculum</span>
+			</h2>
+			
+		</div>
+           
+           <div id="separatore">
+               <!--questo è un div creato per fare spazio tra title e gli altri elementi perchè 
+               la classe clear non funziona -->
+           </div>
+           
+           <span class="places">Technical skills</span>
+           
+           <div class="clear"></div>
+           
+           <div id="technical">	
+           
+              	<img src="images/photoshop.png" width="5%" height="5%" alt="photoshop icon" class="skillicons"/> 
+              	          
+	                <div class="linea">
+	                	<div id="photoshop">
+	                    	<span class="percentuale">75%</span>
+	                    </div>
+	            	</div>
+	                
+                <div class="clear"></div>
+                
+                <img src="images/illustrator.png" width="5%" height="5%" alt="illustrator icon" class="skillicons"/>
+                
+                <div class="linea">
+                	<div id="illustrator">
+                    	<span class="percentuale">60%</span>
+                    </div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <img src="images/indesign.png" width="5%" height="5%" alt="indesign icon" class="skillicons"/>
+                
+                <div class="linea">
+                	<div id="indesign">
+                    	<span class="percentuale">25%</span>
+                    </div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <img src="images/HTML5.png" width="5%" height="5%" alt="html icon" class="skillicons"/>
+                
+                <div class="linea">
+                	<div id="html">
+                    	<span class="percentuale">80%</span>
+                    </div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <img src="images/css.png" width="5%" height="5%" alt="css icon" class="skillicons"/>
+                
+                <div class="linea">
+                	<div id="css">
+                    	<span class="percentuale">75%</span>
+                    </div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <img src="images/jquery.png" width="5%" height="5%" alt="jquery icon" class="skillicons"/>
+                
+                <div class="linea">
+                	<div id="jquery">
+                    	<span class="percentuale">60%</span>
+                    </div>
+                </div>
+                
+           </div><!--fine div technical-->
+
+           <div class="clear"></div>
+
+           <div id="curriculum_titoli">        
+ 
+                  	<span class="titoli_cv"><h2>Education</h2></span>
+                      <img src="images/education.png" width="64" height="64" alt="education" class="cv_icone">
+                   
+                  	<span class="titoli_cv"><h2>Experience</h2></span>
+                      <img src="images/experience.png" width="64" height="64" alt="experience" class="cv_icone">
+                    
+           </div><!--fine div curriculum_titoli-->
+           
+           <div class="clear"></div>
+         
+           <div id="curriculum">
+          	
+            	<span class="date">94 - 98</span>
+                <span class="informazioni"><h3>High school Geometra</h3>
+                At ITG Ines Giganti Curella </span>
+                
+     
+                <span class="date">&nbsp; 04 &nbsp;</span>
+                <span class="informazioni"><h3>Call center inbound</h3>
+                Dealing with passengers leaving from the milan's airports for SEA company</span>
+                
+                 <div class="clear"></div>
+
+                <span class="date">98 - 04</span>
+                <span class="informazioni"><h3>Degree in italian lecterature</h3>
+                At Statal University of Milan, Italy
+				        Italian language and licterature </span>
+                
+     
+                <span class="date">04 - 12</span>
+                <span class="informazioni"><h3>Journalist free lance</h3>             
+				        Following football matches in Bergamo's province for Bergamo Sport </span>
+                
+                 <div class="clear"></div>
+                
+                <span class="date">dic - 14</span>
+                <span class="informazioni"><h3>Graphic course</h3>
+                Followed in formatemp. Advertising graphic with Photoshop 'n' Illustrator</span>
+                
+     
+                <span class="date">05 - 14</span>
+                <span class="informazioni"><h3> Zeropiu consultant</h3>             
+				        Technical writer and release management dealing with</span>
+				
+                 <div class="clear"></div>
+                
+                <span class="date">apr - 15</span>
+                <span class="informazioni"><h3>Web designer course</h3>     
+				        Followed at ABEA form. 
+				        Skills: HTML, CSS, Javascript</span>
+                
+     
+                <span class="date">lug - 15</span>
+                <span class="informazioni"><h3>Copywriter graphic designer</h3>         
+				        Content editor and graphic activities for the marketing yellow's pages at Key-One</span>
+                
+           </div><!--fine div curriculum-->
+           
+           
+           <div class="clear"></div>
+           
+           <hr style="width:70%; margin-right: 20%; color:rgba(1, 169, 219, 0.5);">
+                
+        <div id="footer">
+           
+           	
+            	<div class="bottombox">
+                	<h4>About</h4>
+                    <p>My name is Marco, don tabon for friends, i am a web designer based in Milan</p>
+                </div>
+                <div class="bottombox">
+                	<h4>Contacts</h4>
+                    <p>If you want to contact me for advices or critiques, please go to the contact
+                    page and compile the form.</p>
+                </div>
+                
+         </div><!--fine div footer_about-->       
+        	
+           <div class="downarrow">
+           		<a href="#"><img src="images/down_arrow.png" width="43px" alt="arrow link" id="resize"/></a>
+           </div><!--fine div downarrow-->
+        
+    </div><!--fine div contenitore-->
+
+       <script type="text/javascript">
+	
+			  var _gaq = _gaq || [];
+			  _gaq.push(['_setAccount', 'UA-2821890-9']);
+			  _gaq.push(['_trackPageview']);
+		
+			  (function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+
+		</script>
+
+</body>
+</html>

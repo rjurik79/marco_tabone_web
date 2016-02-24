@@ -1,0 +1,314 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="contatti, Marco Tabone, javascript, scrolling, form, jquery, web design" />
+<meta property="og:description" content="Pagina delle informazioni di contatto per poter interagire con Marco Tabone. Vi è presente anche un form con il quale mi si può scrivere via mail">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Marco Tabone" />
+<title>Pagina dei contatti con Marco Tabone web designer</title>
+<link rel="icon" type="png" href="images/favicon_02.png" />
+
+<link href="css/animate.css" rel="stylesheet" type="text/css" />
+<!--link al foglio di stile di textillate-->
+
+<link rel="stylesheet" media="all and (max-width: 320px)" href="css/smartphone_portrait.css" type="text/css"  />
+<!--Link al CSS se lo schermo è massimo 320px(cell portrait)-->
+
+<link rel="stylesheet" media="all and (min-width: 321px) and (max-width: 480px" href="css/smartphone_landscape.css" type="text/css" />
+<!--Link al CSS se lo schermo è compreso tra 321px e 480px (cell landscape)-->
+
+<link rel="stylesheet" media="all and (min-width: 481px) and (max-width: 768px"  href="css/tablet_portrait.css" type="text/css" />
+<!--Link al CSS se lo schermo è compreso tra 481px e 768px -->
+
+<link rel="stylesheet" media="all and (min-width: 768px) and (max-width: 1024px"  href="css/tablet_landscape.css" type="text/css" />
+<!--Link al CSS se lo schermo è compreso tra 768px e 1024px -->
+
+<link rel="stylesheet" media="all and (min-width: 1024px) "  href="css/screen.css" type="text/css" />
+<!--Link al CSS se lo schermo è maggiore di 1024px -->
+
+
+<script src="js/jquery-2.1.4.js" type="text/javascript"></script>
+<script src="js/jquery.textillate.js"></script>
+<script src="js/jquery.fittext.js"></script>
+<script src="js/jquery.lettering.js"></script>
+<script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
+
+<script>window.jQuery || document.write('<script src="js/jquery-2.1.4.js"><\/script>')</script>
+<script src="js/modernizr.custom.min.js" type="text/javascript"></script>
+	<!--script div expander-->
+	<script type="text/javascript">
+
+			$(document).ready(function(){
+			
+				$(".slidingDiv").hide();
+				$(".show_hide").show();
+				
+				$('.show_hide').click(function(){
+				$(".slidingDiv").slideToggle();
+			});
+			
+			});
+
+	</script>
+	<!--script textillate-->
+	<script>
+	  $(function (){
+	    var log = function (msg) {
+	      return function () {
+	        if (console) console.log(msg);
+	      }
+	    }
+	    $('code').each(function () {
+	      var $this = $(this);
+	      $this.text($this.html());
+	    })
+
+	    var animateClasses = 'flash bounce shake tada swing wobble pulse flip flipInX flipOutX flipInY flipOutY fadeIn fadeInUp fadeInDown fadeInLeft fadeInRight fadeInUpBig fadeInDownBig fadeInLeftBig fadeInRightBig fadeOut fadeOutUp fadeOutDown fadeOutLeft fadeOutRight fadeOutUpBig fadeOutDownBig fadeOutLeftBig fadeOutRightBig bounceIn bounceInDown bounceInUp bounceInLeft bounceInRight bounceOut bounceOutDown bounceOutUp bounceOutLeft bounceOutRight rotateIn rotateInDownLeft rotateInDownRight rotateInUpLeft rotateInUpRight rotateOut rotateOutDownLeft rotateOutDownRight rotateOutUpLeft rotateOutUpRight hinge rollIn rollOut';
+
+	    var $form = $('.playground form')
+	      , $viewport = $('.playground .viewport');
+
+	    var getFormData = function () {
+	      var data = { 
+	        loop: true, 
+	        in: { callback: log('in callback called.') }, 
+	        out: { callback: log('out callback called.') }
+	      };
+	      
+	      $form.find('[data-key="effect"]').each(function () {
+	        var $this = $(this)
+	          , key = $this.data('key')
+	          , type = $this.data('type');
+
+	          data[type][key] = $this.val();
+	      });
+
+	      $form.find('[data-key="type"]').each(function () {
+	        var $this = $(this)
+	          , key = $this.data('key')
+	          , type = $this.data('type')
+	          , val = $this.val();
+
+	          data[type].shuffle = (val === 'shuffle');
+	          data[type].reverse = (val === 'reverse');
+	          data[type].sync = (val === 'sync');
+	      });
+
+	      return data;
+	    };
+
+	    $.each(animateClasses.split(' '), function (i, value) {
+	      var type = '[data-type]'
+	        , option = '<option value="' + value + '">' + value + '</option>';
+
+	      if (/Out/.test(value) || value === 'hinge') {
+	        type = '[data-type="out"]';
+	      } else if (/In/.test(value)) {
+	        type = '[data-type="in"]';
+	      } 
+
+	      if (type) {
+	        $form.find('[data-key="effect"]' + type).append(option);        
+	      }
+	    });
+
+	    $form.find('[data-key="effect"][data-type="in"]').val('fadeInLeftBig');
+	    $form.find('[data-key="effect"][data-type="out"]').val('hinge');
+
+	    $('.jumbotron h1')
+	      .fitText(0.5)
+	      .textillate({ in: { effect: 'flipInY' }});
+	    
+	    $('.jumbotron p')
+	      .fitText(3.2, { maxFontSize: 18 })
+	      .textillate({ initialDelay: 1000, in: { delay: 3, shuffle: true } });
+
+	    setTimeout(function () {
+	        $('.fade').addClass('in');
+	    }, 250);
+
+	    setTimeout(function () {
+	      $('h1.glow').removeClass('in');
+	    }, 2000);
+
+	    var $tlt = $viewport.find('.tlt')
+	      .on('start.tlt', log('start.tlt triggered.'))
+	      .on('inAnimationBegin.tlt', log('inAnimationBegin.tlt triggered.'))
+	      .on('inAnimationEnd.tlt', log('inAnimationEnd.tlt triggered.'))
+	      .on('outAnimationBegin.tlt', log('outAnimationBegin.tlt triggered.'))
+	      .on('outAnimationEnd.tlt', log('outAnimationEnd.tlt triggered.'))
+	      .on('end.tlt', log('end.tlt'));
+	    
+	    $form.on('change', function () {
+	      var obj = getFormData();
+	      $tlt.textillate(obj);
+	    }).trigger('change');
+
+	  });
+
+	</script>
+
+</head>
+
+<body>
+	<div id="contenitore">
+            <div id="titolo">
+          
+                <h1>
+                  <em>D</em>
+                  <em class="planet left">O</em>
+                  <em>N</em>
+                  <em> </em>
+                  <em>T</em>
+                  <em>A</em>
+                  <em>B</em>
+                  <em class="planet right">O</em>
+                  <em>N</em>
+                </h1>
+   
+            </div><!--fine div titolo-->
+            
+            <div class="clear"></div>
+            
+                        <!-- <span><img src="images/languages.png" alt="lang"/></span> -->
+                <div id="divexpander">
+                     <a href="#"class="show_hide"><img src="images/languages.png" alt="lang"/></a>
+                  
+                   <div class="slidingDiv">
+                        
+                     <ul>
+                       <li><a href="#" target="_self">Italian <img src="images/Italy-Flag-icon.png" class="flag"></a></li>
+                       <li><a href="contact_english.html">English<img src="images/United-Kingdom-flag-icon.png" class="flag"></a></li>
+                     </ul> 
+                            
+                   </div><!--fine div slidingDiv-->
+                </div><!--fine div divexpander-->
+        <div class="logo">
+        	<h1><img src="images/favicon_02.png" alt="logo" class="adatta"></h1>
+              <ul class="nav">
+                <li><a href="index.html" >Home</a></li>
+                <li><a href="about.html">About me</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="#" class="selected">Contacts</a></li>
+             </ul>
+        </div><!--fine div logo-->
+        
+        <!-- Inizio parte da modificare -->
+        <!--textillate effect-->
+    <div class="textillate">
+        <section class="col-1-1">
+            
+            <div class="playground grid">
+              <div class="col-1-1 viewport">
+                  <div class="tlt">
+                    <ul class="texts" style="display: none">
+                      <li>CONTATTI</li>
+                      <li>CONTATTI</li>
+                      <li>CONTATTI </li>
+                      <li>CONTATTI</li>
+                    </ul>
+                  </div>
+              </div><!-- fine classe col-1-1 viewport-->
+              <div class="col-1-1 controls" style="padding-right: 0">
+                <form class="grid grid-pad">
+                  <div class="control col-1-2" style="display:none">
+                    <label>In Animation</label>
+                    <select data-key="effect" data-type="in"></select>
+                    <select data-key="type" data-type="in">
+                      <option value="">sequence</option>
+                      <option value="reverse">reverse</option>
+                      <option value="sync">sync</option>
+                      <option value="shuffle">shuffle</option>
+                    </select>
+                  </div>
+                  <div class="control col-1-2" style="display:none">
+                    <label>Out Animation</label>
+                    <select data-key="effect" data-type="out"></select>
+                    <select data-key="type" data-type="out">
+                      <option value="">sequence</option>
+                      <option value="reverse">reverse</option>
+                      <option value="sync">sync</option>
+                      <option selected="selected" value="shuffle">shuffle</option>
+                    </select>
+                  </div><!-- fine classe control col-1-2-->
+                </form>
+              </div><!-- fine classe col-1-1 controls-->
+            </div><!-- fine classe playground grid-->
+        </section><!-- fine classe col-1-1-->
+  	</div><!--fine classe grid grid-pad-->
+           
+        <div class="clear"></div>
+		<div id="contact">
+           		<span class="contatc_title">Mandami una mail</span>
+                <div class="clear"></div>
+                <div id="form">
+            <form action="send_form_email.php" method="post">
+                <fieldset>
+                	<label for="first_name">Nome:</label>
+                    <input type="text" id="nome" placeholder="Metti il tuo nome" />
+                    
+                    <label for="first_name">Cognome:</label>
+                    <input type="text" id="nome" placeholder="Metti il tuo cognome" />
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="Inserisci la mail" />
+                    
+                    <label for="message">Messaggio:</label>
+                    <textarea id="message" placeholder="Mandami un messaggio"></textarea>
+                    
+                    <input type="submit" value="Invia" />
+                    
+                </fieldset>                            
+              </form>
+              </div><!--fine div form-->
+            <span class="altri_contatti">
+            	<ul class="lista_contatti">
+            		<li>Marco Tabone</li>
+                    <li>email: marcoangelo79@gmail.com</li>
+                    <li>Skype: rjurik79</li>
+                </ul>
+            </span>
+         </div><!--fine div contact-->
+
+           	<hr style="width:60%; margin-right: 18%;">
+		
+           <div id="footer">
+           	
+            	<div class="bottombox">
+                	<span class="wodry" id="formattah2">About</span>
+                    <p>Mi chiamo Marco, don tabon per gli amici, e sono un web designer di Milano</p>
+                </div>
+                <div class="bottombox">
+                	<span class="wodry" id="formattah2">Contacts</span>
+                    <p>Se vuoi contattarmi per suggerimenti e critiche compila il form sopra grazie</p>
+                </div>
+                
+           </div><!--fine div footer-->
+           <div class="downarrow">
+           		<a href="#"><img src="images/down_arrow.png" width="43px" alt="arrow link" /></a>
+           </div><!--fine div downarrow-->
+    </div><!--fine div contenitore-->
+
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-2821890-9']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
+	<!--script textillate-->
+	<script>
+    window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+  </script>
+</body>
+</html>
